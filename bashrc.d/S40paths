@@ -1,0 +1,41 @@
+#!/bin/bash
+# paths
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+
+if [ -n "$MACPORTS_HOME" ]; then
+    if [ -d $MACPORTS_HOME/sbin ]; then
+        export PATH=$MACPORTS_HOME/sbin:$PATH
+    fi
+    if [ -d $MACPORTS_HOME/bin ]; then
+        export PATH=$MACPORTS_HOME/bin:$PATH
+    fi
+fi
+if [ -n "$JAVA_HOME" ]; then
+    if [ -d $JAVA_HOME/bin ]; then
+        export PATH=$JAVA_HOME/bin:$PATH
+    fi
+fi
+if [ -n "$MAVEN_HOME" ]; then
+    if [ -d $MAVEN_HOME/bin ]; then
+        export PATH=$MAVEN_HOME/bin:$PATH
+    fi
+fi
+export PATH=$HOME/bin:$PATH
+
+export MANPATH=/usr/local/share/man:/usr/share/man:/usr/local/man
+if [ -n "$MACPORTS_HOME" ]; then
+    if [ -d $MACPORTS_HOME/share/man ]; then
+        export MANPATH=$MACPORTS_HOME/share/man:$MANPATH
+    fi
+fi
+
+export INFOPATH=/usr/share/info
+if [ -n "$MACPORTS_HOME" ]; then
+    if [ -d $MACPORTS_HOME/share/info ]; then
+        export INFOPATH=$MACPORTS_HOME/share/info:$INFOPATH
+    fi
+fi
+
+# export DYLD_LIBRARY_PATH=$MACPORTS_HOME/lib/oracle/:$MACPORTS_HOME/lib
+# export LD_LIBRARY_PATH=$MACPORTS_HOME/lib

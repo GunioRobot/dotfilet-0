@@ -1,0 +1,15 @@
+#!/bin/bash
+# bash tab completion support
+
+if [ -n "$MACPORTS" ]; then
+    if [ -f $MACPORTS_HOME/etc/bash_completion ]; then
+        . $MACPORTS_HOME/etc/bash_completion
+    fi
+fi
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+if [ -f $HOME/.bash_completion ]; then
+    . $HOME/.bash_completion
+fi
+complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
