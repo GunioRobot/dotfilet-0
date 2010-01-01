@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
-# from http://errtheblog.com/posts/89-huba-huba
+# from http://errtheblog.com/posts/89-huba-huba, with local mods
 
 home = File.expand_path('~')
 
 Dir['*'].each do |file|
   next if file =~ /install/
   target = File.join(home, ".#{file}")
+  next if File.exists?(target)
   `ln -s #{File.expand_path file} #{target}`
 end
 
