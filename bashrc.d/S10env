@@ -1,0 +1,4 @@
+# environment variables used by everything
+
+export EDITOR=vi
+export LC_CTYPE=en_US.UTF-8

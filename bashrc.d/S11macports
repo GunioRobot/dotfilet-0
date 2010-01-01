@@ -1,0 +1,3 @@
+# environment variables used by Macports
+
+export MACPORTS_HOME=/opt/local

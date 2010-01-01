@@ -1,0 +1,28 @@
+# aliases
+
+# aliases for GNU utilities, which Macports prefixes with "g"
+if [ -n "$MACPORTS" ]; then
+    alias du='gdu'
+    alias find='gfind'
+    alias ls='gls'
+    alias md5sum='gmd5sum'
+fi
+
+export LESS="--hilite-search --tabs=4"
+
+# EOL corrections -- Mac (<CR>,\r); Unix (<LF>,\n); Win (<CRLF>,\r\n)
+alias mac2unix="perl -pi -e 's/\r/\n/g'"
+alias unix2mac="perl -pi -e 's/\n/\r/g'"
+alias win2unix="perl -pi -e 's/\r\n/\n/g'"
+alias unix2win="perl -pi -e 's/\n/\r\n/g'"
+alias win2mac="perl -pi -e 's/\r\n/\r/g'"
+alias mac2win="perl -pi -e 's/\r/\r\n/g'"
+
+# other aliases
+# alias gitprep='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
+alias grep="grep --color=auto"
+alias mr="svn update; mvn release:prepare -Dusername=ccotting"
+alias netlisten="netstat -naf inet | grep LISTEN"
+alias psgrep="ps axwww | grep"
+# alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+alias top="top -F -R -o cpu -s 2"

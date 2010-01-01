@@ -1,0 +1,30 @@
+# set up Terminal display (and maybe X display?)
+
+if [ "$PS1" ]; then
+    # running interactively, so the rest of this makes sense
+    
+    # fix the backspace and forward delete keys?
+    stty erase   # there's a ^H at the end of this line
+    
+    # enable color support of ls
+    export LS_COLORS='no=00:fi=00:di=00;33:ln=00;36:pi=00;35:so=00;35:bd=00;37:cd=00;37:or=01;33;41:'
+    alias ls='gls --color=auto'
+
+    # set the Terminal window title
+    export PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}\007"'
+    # export PROMPT_COMMAND='echo -ne "\033]0;${LOGNAME}@${HOSTNAME}\007"'
+
+    # set up environment for X11
+    export DISPLAY=":0.0"
+    # if [ ! $SSH_TTY ] && [ ! $DISPLAY ]; then
+    #     DISPLAY_FILE=$HOME/tmp/X11-display-`hostname -s`
+    #     DISPLAY=`cat $DISPLAY_FILE 2>/dev/null`
+    #     if xwininfo -display "$DISPLAY" -root >/dev/null 2>&1; then
+    #         export DISPLAY
+    #     else
+    #         echo X11 display $DISPLAY not active
+    #         unset DISPLAY
+    #         rm -f "$DISPLAY_FILE"
+    #     fi
+    # fi
+fi

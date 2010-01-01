@@ -2,13 +2,19 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export EDITOR=vi
-export LC_CTYPE=en_US.UTF-8
+# load individual init files
+if [ -d ~/.bashrc.d ]; then
+    for file in $(/bin/ls ~/.bashrc.d/S*); do
+        echo "loading $file"
+        . "$file"
+    done
+fi
+
+# load other stuff that hasn't yet been ported to individual init files
 
 # export JAVA_HOME=/usr/local/java5
 export JAVA_HOME=/usr/local/java6
 
-export MACPORTS_HOME=/opt/local
 export MAVEN_HOME=/usr/local/maven
 export POSTGRESQL_HOME=$MACPORTS_HOME/lib/postgresql83
 export SUBVERSION_HOME=/opt/subversion
@@ -52,58 +58,9 @@ if [ -f $HOME/.bash_completion ]; then
 fi
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
 
-# aliases for GNU utilities, which DarwinPorts prefixes with "g"
-alias du='gdu'
-alias find='gfind'
-alias ls='gls'
-alias md5sum='gmd5sum'
-
-export LESS="--hilite-search --tabs=4"
-
-# EOL corrections -- Mac (<CR>,\r); Unix (<LF>,\n); Win (<CRLF>,\r\n)
-alias mac2unix="perl -pi -e 's/\r/\n/g'"
-alias unix2mac="perl -pi -e 's/\n/\r/g'"
-alias win2unix="perl -pi -e 's/\r\n/\n/g'"
-alias unix2win="perl -pi -e 's/\n/\r\n/g'"
-alias win2mac="perl -pi -e 's/\r\n/\r/g'"
-alias mac2win="perl -pi -e 's/\r/\r\n/g'"
-
-# other aliases
-# alias gitprep='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
-alias grep="grep --color=auto"
-alias mr="svn update; mvn release:prepare -Dusername=ccotting"
-alias netlisten="netstat -naf inet | grep LISTEN"
-alias psgrep="ps axwww | grep"
-# alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-alias top="top -F -R -o cpu -s 2"
-
-# if running interactively, then:
+# can't be in a sub-init, because that's in a subshell?
 if [ "$PS1" ]; then
-
-    # fix the backspace and forward delete keys?
-    stty erase   # there's a ^H at the end of this line
-    
-    # enable color support of ls
-    export LS_COLORS='no=00:fi=00:di=00;33:ln=00;36:pi=00;35:so=00;35:bd=00;37:cd=00;37:or=01;33;41:'
-    alias ls='gls --color=auto'
-
-    # set a fancy prompt
-    export PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}\007"'
     PS1='\u@\h:\w\$ '
-
-    # set up environment for X11
-    export DISPLAY=":0.0"
-    # if [ ! $SSH_TTY ] && [ ! $DISPLAY ]; then
-    #     DISPLAY_FILE=$HOME/tmp/X11-display-`hostname -s`
-    #     DISPLAY=`cat $DISPLAY_FILE 2>/dev/null`
-    #     if xwininfo -display "$DISPLAY" -root >/dev/null 2>&1; then
-    #         export DISPLAY
-    #     else
-    #         echo X11 display $DISPLAY not active
-    #         unset DISPLAY
-    #         rm -f "$DISPLAY_FILE"
-    #     fi
-    # fi
 fi
 
 export GEMDIR=`gem env gemdir`
