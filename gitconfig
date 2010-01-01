@@ -1,0 +1,5 @@
+[user]
+    name = Craig S. Cottingham
+    email = craig.cottingham@gmail.com
+[core]
+	excludesfile = /Users/craigc/.gitignore
