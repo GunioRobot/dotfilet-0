@@ -5,9 +5,9 @@
 export EDITOR=vi
 export LC_CTYPE=en_US.UTF-8
 
-# export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home
-export JAVA_HOME=/usr/local/java6
 # export JAVA_HOME=/usr/local/java5
+export JAVA_HOME=/usr/local/java6
+
 export MACPORTS_HOME=/opt/local
 export MAVEN_HOME=/usr/local/maven
 export POSTGRESQL_HOME=$MACPORTS_HOME/lib/postgresql83
@@ -23,7 +23,6 @@ export INFOPATH=$MACPORTS_HOME/share/info:/usr/share/info
 export RUBYLIB=$HOME/lib/ruby
 
 export RSYNC_RSH=ssh
-export UNISONLOCALHOSTNAME=tabitha
 
 # ** only for HRWorX development, and State of MN specifically
 export CVS_RSH=ssh
