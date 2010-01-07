@@ -1,8 +1,8 @@
 #!/bin/bash
 # setup for Java development
 
-# export JAVA_HOME=/usr/local/java5
-export JAVA_HOME=/usr/local/java6
+export JAVA_HOME=/usr/local/java5
+# export JAVA_HOME=/usr/local/java6
 
 export MAVEN_HOME=/usr/local/maven
 export MAVEN_OPTS="-Dfile.encoding=UTF-8 -Xms128m -Xmx256m"

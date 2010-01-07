@@ -5,7 +5,7 @@
 # load individual init files
 if [ -d ~/.bashrc.d ]; then
     for file in $(/bin/ls ~/.bashrc.d/S*); do
-        echo "loading $file"
+        # echo "loading $file"
         . "$file"
     done
 fi
