@@ -21,6 +21,9 @@ if [ -n "$MAVEN_HOME" ]; then
         export PATH=$MAVEN_HOME/bin:$PATH
     fi
 fi
+if [ -d $HOME/Customers/HRWorX/bin ]; then
+    export PATH=$HOME/Customers/HRWorX/bin:$PATH
+fi
 export PATH=$HOME/bin:$PATH
 
 export MANPATH=/usr/local/share/man:/usr/share/man:/usr/local/man
