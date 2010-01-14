@@ -1,3 +1,4 @@
+#!/bin/bash
 # set up Terminal display (and maybe X display?)
 
 if [ "$PS1" ]; then

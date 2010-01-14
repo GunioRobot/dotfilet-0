@@ -1,3 +1,4 @@
+#!/bin/bash
 # aliases
 
 # aliases for GNU utilities, which Macports prefixes with "g"
@@ -26,3 +27,5 @@ alias netlisten="netstat -naf inet | grep LISTEN"
 alias psgrep="ps axwww | grep"
 # alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 alias top="top -F -R -o cpu -s 2"
+
+alias dmproxy="sudo /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Resources/DMProxy"
