@@ -3,11 +3,25 @@
 
 export RUBYLIB=$HOME/lib/ruby
 
-# RVM support
-if [ -f ~/.rvm/bin/rvm ]; then
-    . ~/.rvm/bin/rvm
-fi
-if [ -f ~/.rvm/current ]; then
-    . ~/.rvm/current
-fi
-export PATH=$HOME/.rvm/bin:$PATH
+export GEMDIR=`gem env gemdir`
+
+gemdoc() {
+  open $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
+}
+
+_gemdocomplete() {
+  COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
+  return 0
+}
+
+complete -o default -o nospace -F _gemdocomplete gemdoc
+
+_mategem() {
+    local curw
+    COMPREPLY=()
+    curw=${COMP_WORDS[COMP_CWORD]}
+    local gems="$(gem environment gemdir)/gems"
+    COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
+    return 0
+}
+complete -F _mategem -o dirnames mategem

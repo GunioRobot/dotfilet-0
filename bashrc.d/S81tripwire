@@ -1,0 +1,7 @@
+#!/bin/bash
+# aliases for tripwire
+
+# alias tripwire_check="sudo tripwire -m c"
+# alias tripwire_updatedb="sudo tripwire -m u -r `(sudo find /opt/local/etc/tripwire/report -name "*.twr" -print | tail -n 1)`"
+# alias tripwire_updatepolicy="sudo tripwire -m p -L /opt/local/etc/tripwire/tabitha-local.key -Z low /opt/local/etc/tripwire/twpol.txt"
+# alias tripwire_display="sudo twprint -m r -r /opt/local/etc/tripwire/report/`(sudo ls /opt/local/etc/tripwire/report | fgrep twr | tail -n 1)` | more"
