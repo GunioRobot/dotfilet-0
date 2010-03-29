@@ -26,6 +26,8 @@ alias mr="svn update; mvn release:prepare -Dusername=ccotting"
 alias netlisten="netstat -naf inet | grep LISTEN"
 alias psgrep="ps axwww | grep"
 # alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+alias svnwho="svn log | egrep '^r[0-9]+ \|' | cut -d '|' -f 2 | sort | uniq"
+
 alias top="top -F -R -o cpu -s 2"
 
 alias dmproxy="sudo /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Resources/DMProxy"
