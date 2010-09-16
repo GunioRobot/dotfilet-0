@@ -24,3 +24,9 @@ fi
 if [ "$PS1" ]; then
     PS1='\u@\h:\w\$ '
 fi
+
+# RVM support
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
+    . $HOME/.rvm/scripts/rvm
+fi
+complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm

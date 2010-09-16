@@ -1,5 +1,0 @@
-#!/bin/bash
-# setup for Jruby
-
-export JRUBY_HOME=/usr/local/jruby
-export PATH=$JRUBY_HOME/bin:$PATH
