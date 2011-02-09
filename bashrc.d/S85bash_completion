@@ -1,11 +1,6 @@
 #!/bin/bash
 # bash tab completion support
 
-if [ -n "$MACPORTS_HOME" ]; then
-    if [ -f $MACPORTS_HOME/etc/bash_completion ]; then
-        . $MACPORTS_HOME/etc/bash_completion
-    fi
-fi
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi

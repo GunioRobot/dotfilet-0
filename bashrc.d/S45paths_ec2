@@ -1,0 +1,8 @@
+#!/bin/bash
+# paths for Amazon EC2
+
+if [ -n "$EC2_HOME" ]; then
+    if [ -d $EC2_HOME/bin ]; then
+        export PATH=$PATH:$EC2_HOME/bin
+    fi
+fi

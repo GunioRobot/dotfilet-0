@@ -1,5 +1,11 @@
 [user]
-    name = Craig S. Cottingham
-    email = craig.cottingham@gmail.com
+	name = Craig S. Cottingham
+	email = craig.cottingham@gmail.com
 [core]
 	excludesfile = /Users/craigc/.gitignore
+	autocrlf = input
+	safecrlf = true
+[github]
+	user = CraigCottingham
+[alias]
+  lol = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short

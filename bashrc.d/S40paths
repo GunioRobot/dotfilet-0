@@ -8,14 +8,6 @@ if [ -n "$JAVA_HOME" ]; then
         export PATH=$JAVA_HOME/bin:$PATH
     fi
 fi
-if [ -n "$MAVEN_HOME" ]; then
-    if [ -d $MAVEN_HOME/bin ]; then
-        export PATH=$MAVEN_HOME/bin:$PATH
-    fi
-fi
-if [ -d /opt/subversion/bin ]; then
-    export PATH=/opt/subversion/bin:$PATH
-fi
 export PATH=$HOME/bin:$PATH
 
 export MANPATH=/usr/local/share/man:/usr/share/man:/usr/local/man

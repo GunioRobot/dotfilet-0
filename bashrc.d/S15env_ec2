@@ -1,0 +1,6 @@
+#!/bin/bash
+# environment variables used by Amazon EC2 command-line tools
+
+export EC2_HOME=$HOME/ec2
+export EC2_PRIVATE_KEY=$HOME/.ec2/pk-LXP26PKFPMY5DJLDIF3UHCPCJ7V4QWIO.pem
+export EC2_CERT=$HOME/.ec2/cert-LXP26PKFPMY5DJLDIF3UHCPCJ7V4QWIO.pem
