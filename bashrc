@@ -1,9 +1,10 @@
+#!/bin/bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # load individual init files
-if [ -d ~/.bashrc.d ]; then
+if [[ -d ~/.bashrc.d ]]; then
     for file in $(/bin/ls ~/.bashrc.d/S*); do
         # echo "loading $file"
         . "$file"
@@ -16,12 +17,12 @@ fi
 export CVS_RSH=ssh
 export CVSROOT=:ext:resweb:/home/cvs/cvsroot
 
-if [ -f /etc/bashrc ]; then
+if [[ -f /etc/bashrc ]]; then
     . /etc/bashrc
 fi
 
 # can't be in a sub-init, because that's in a subshell?
-if [ "$PS1" ]; then
+if [[ "$PS1" ]]; then
     PS1='\u@\h:\w\$ '
 fi
 
@@ -29,4 +30,11 @@ fi
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
     . $HOME/.rvm/scripts/rvm
 fi
+
+# function for switching between multiple RVM installs -- useful for developing RVM
+if [[ -s $HOME/.rvm/scripts/functions/developer ]]; then
+    . $HOME/.rvm/scripts/functions/developer
+fi
+
+# bash autocompletion for rvm
 complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
