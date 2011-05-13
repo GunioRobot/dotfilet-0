@@ -10,6 +10,6 @@ if [ -n "$JAVA_HOME" ]; then
 fi
 export PATH=$HOME/bin:$PATH
 
-export MANPATH=/usr/local/share/man:/usr/share/man:/usr/local/man
+export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
 
 export INFOPATH=/usr/share/info
