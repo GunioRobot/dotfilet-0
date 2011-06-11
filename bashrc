@@ -13,10 +13,6 @@ fi
 
 # load other stuff that hasn't yet been ported to individual init files
 
-# ** only for HRWorX development, and State of MN specifically
-export CVS_RSH=ssh
-export CVSROOT=:ext:resweb:/home/cvs/cvsroot
-
 if [[ -f /etc/bashrc ]]; then
     . /etc/bashrc
 fi
