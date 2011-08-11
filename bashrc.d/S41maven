@@ -73,9 +73,9 @@ function setMaven()
 	
 	# If we get here the user asked for a valid version, so configure it
 
-    echo "Switching from `mvn -v`"
+    # echo "Switching from `mvn -v`"
 
-	echo "Configuring Shell Environment for Maven "$@
+    # echo "Configuring Shell Environment for Maven "$@
 
 	# First unset any currently set Maven, back to default before doing configuration
 	_unsetMaven
@@ -102,7 +102,7 @@ function setMaven()
 	# Update command prompt mode tag to note version setting
 	CURRENT_MODE_STRING="M$@"
 
-	echo "Current `mvn -v`"
+    # echo "Current `mvn -v`"
 }
 
 function _unsetMaven()
