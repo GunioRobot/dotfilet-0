@@ -1,0 +1,4 @@
+#!/bin/bash
+# environment variables for PostgreSQL
+
+export PGHOST=localhost
